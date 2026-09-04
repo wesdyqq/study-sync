@@ -1,4 +1,7 @@
 {
   "accentColor": "#0084ff",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "noctalia"
+  ]
 }
