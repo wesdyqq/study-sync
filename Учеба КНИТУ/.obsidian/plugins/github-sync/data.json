@@ -1,0 +1,9 @@
+{
+  "remoteURL": "git@github.com:wesdyqq/study-sync.git",
+  "gitLocation": "",
+  "syncinterval": 15,
+  "isSyncOnLoad": true,
+  "checkStatusOnLoad": true,
+  "noticeLevel": "ALL",
+  "showSyncSuccessNotice": true
+}

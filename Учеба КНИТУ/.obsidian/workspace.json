@@ -1,0 +1,207 @@
+{
+  "main": {
+    "id": "5e276efea7cf8277",
+    "type": "split",
+    "children": [
+      {
+        "id": "5f18977da9de22ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3344100377da2630",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ОБЖ/Безопасность жизнедеятельности 03.09.26.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Безопасность жизнедеятельности 03.09.26"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "052a59b80e382134",
+    "type": "split",
+    "children": [
+      {
+        "id": "405a7801d06744fc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "674756115f1f6d8f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "d1e405284b0acf65",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "728bdde65c88f837",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8bb87379cdc520b2",
+    "type": "split",
+    "children": [
+      {
+        "id": "30fbcaf8f84fac44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96fa31461442cc11",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Информация и информатика 03.09.26.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "3847de4f6b6046d6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Информация и информатика 03.09.26.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "1b705e74a8774ef6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ef36a2cd11dfba4a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "8047a666d3fc51ba",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Информация и информатика 03.09.26.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false,
+      "github-sync:Sync with Remote": false
+    }
+  },
+  "active": "3344100377da2630",
+  "lastOpenFiles": [
+    "ОБЖ/Понятие безопасности жизнедеятельности.md",
+    "ОБЖ/Безопасность жизнедеятельности 03.09.26.md",
+    "Без названия.md",
+    "Информатика/Уменьшаемая информация.md",
+    "Информатика/Понятие информации.md",
+    "Информатика/Информация и информатика 03.09.26.md",
+    "ОБЖ",
+    "Информатика/Информация как способ передачи.md",
+    "Понятие.md",
+    "информации.md",
+    "Welcome.md",
+    "Информатика"
+  ]
+}
