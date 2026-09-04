@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "5f18977da9de22ca",
+        "id": "8638262b6da4a625",
         "type": "tabs",
         "children": [
           {
-            "id": "3344100377da2630",
+            "id": "d9d42236722f53b1",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Граф"
+              "type": "markdown",
+              "state": {
+                "file": "ОБЖ/_Безопасность жизнедеятельности 03.09.26.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "_Безопасность жизнедеятельности 03.09.26"
             }
           }
         ]
@@ -185,7 +189,7 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "3344100377da2630",
+  "active": "d9d42236722f53b1",
   "lastOpenFiles": [
     "ОБЖ/_Безопасность жизнедеятельности 03.09.26.md",
     "ОБЖ/Понятие безопасности жизнедеятельности.md",
