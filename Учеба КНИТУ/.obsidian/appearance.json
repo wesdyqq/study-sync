@@ -2,6 +2,7 @@
   "accentColor": "#0084ff",
   "theme": "moonstone",
   "enabledCssSnippets": [
-    "noctalia"
+    "noctalia",
+    "mermaid-center"
   ]
 }
