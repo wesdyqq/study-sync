@@ -1,6 +1,0 @@
-.markdown-preview-view .mermaid svg,
-.markdown-reading-view .mermaid svg,
-.markdown-source-view.mod-cm6 .cm-preview-code-block .mermaid svg {
-  min-width: max-content !important;
-  max-width: none !important;
-}
