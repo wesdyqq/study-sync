@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Информатика/_Информация и информатика 17.09.26.md",
+                "file": "История России/_История России 19.09.26.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_Информация и информатика 17.09.26"
+              "title": "_История России 19.09.26"
             }
           }
         ]
@@ -88,7 +88,91 @@
   "right": {
     "id": "8bb87379cdc520b2",
     "type": "split",
-    "children": [],
+    "children": [
+      {
+        "id": "db1370b6b8ebb00f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3dddee84ef6de83c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "История России/_История России 19.09.26.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки"
+            }
+          },
+          {
+            "id": "9ae3476c90118e58",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "История России/_История России 19.09.26.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки"
+            }
+          },
+          {
+            "id": "e4eea6c7e722eb70",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "70ea80453bf7023d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Все свойства"
+            }
+          },
+          {
+            "id": "367948e5e686d744",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "История России/_История России 19.09.26.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Структура"
+            }
+          }
+        ]
+      }
+    ],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
@@ -102,12 +186,15 @@
       "templates:Вставить шаблон": false,
       "command-palette:Открыть палитру команд": false,
       "bases:Создать новую базу": false,
-      "github-sync:Sync with Remote": false,
-      "mermaid-tools:Open Mermaid Toolbar": false
+      "github-sync:Sync with Remote": false
     }
   },
   "active": "203d9bc4f04c4428",
   "lastOpenFiles": [
+    "Информатика/_Информация и информатика 17.09.26.md",
+    "История России/_История России 19.09.26.md",
+    "История России",
+    "Без названия.md",
     "Информатика/_Основы Проф. Деятельности 10.09.26.md",
     "Информатика/_Информация и информатика 10.09.26.md",
     "ОРГ/_Основы Российской Государственности 16.09.26.md",
@@ -116,7 +203,6 @@
     "Информатика/Информатизация общества.md",
     "Информатика/АСУ.md",
     "Информатика/_Основы Проф. Деятельности 17.09.26.md",
-    "Информатика/_Информация и информатика 17.09.26.md",
     "БЖД/_Безопасность жизнедеятельности 17.09.26.md",
     "БЖД/_Безопасность жизнедеятельности 03.09.26.md",
     "БЖД/СУОТ.md",
@@ -133,8 +219,6 @@
     "Информатика/Информация.md",
     "Информатика/Сигнал.md",
     "БЖД/Культура безопасности.md",
-    "БЖД/Охрана труда.md",
-    "БЖД/Понятие безопасности жизнедеятельности.md",
     "ОБЖ/Без названия",
     "БЖД",
     "Информатика"
