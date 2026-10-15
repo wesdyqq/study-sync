@@ -4,6 +4,6 @@
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Невидимая метка автора в заметках (стеганография на символах нулевой ширины).",
-	"author": "Сафьянов Камиль Саматович",
+	"author": "wesdyqq",
 	"isDesktopOnly": false
 }
