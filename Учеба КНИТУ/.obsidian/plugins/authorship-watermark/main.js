@@ -37,8 +37,17 @@ async function makeWm(payload) {
 }
 
 function embed(text, wm) {
-  text = text.replace(RE, "");
-  const lines = text.split(NL);
+  const raw = text.split(NL);
+  const lines = [];
+  for (const ln of raw) {
+    if (ln.indexOf(S) !== -1) {
+      const cleaned = ln.replace(RE, "");
+      if (cleaned.trim() === "") continue;
+      lines.push(cleaned);
+    } else {
+      lines.push(ln);
+    }
+  }
   let start = 0;
   if (lines.length && lines[0].trim() === "---") {
     for (let j = 1; j < lines.length; j++) {
@@ -54,9 +63,9 @@ function embed(text, wm) {
     lines[i] = lines[i] + wm;
     break;
   }
-  let out = lines.join(NL);
-  if (!out.endsWith(NL)) out += NL;
-  return out + wm + NL;
+  const out = lines.join(NL).trimEnd();
+  if (out === "") return wm + NL;
+  return out + NL + wm + NL;
 }
 
 module.exports = class AuthorshipWatermark extends Plugin {
