@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <style>
+    .box { fill: #ECECFF; stroke: #9370DB; stroke-width: 1.5; }
+    .cpu { fill: #FFF8DC; stroke: #D4A017; stroke-width: 1.5; }
+    .inner { fill: #F7F7FF; stroke: #9370DB; stroke-width: 1.2; }
+    .label { font-family: "Segoe UI", Roboto, Arial, sans-serif; font-size: 18px; fill: #333333; text-anchor: middle; }
+    .small { font-family: "Segoe UI", Roboto, Arial, sans-serif; font-size: 17px; fill: #333333; text-anchor: middle; }
+    .arrow { stroke: #333333; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+    .control { stroke: #333333; stroke-width: 1.4; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrow); }
+  </style>
+
+  <!-- Основная цепочка -->
+  <rect class="box" x="10" y="25" width="120" height="80" rx="4"/>
+  <text class="label" x="70" y="55">
+    <tspan x="70">Вход</tspan>
+    <tspan x="70" dy="20">информации</tspan>
+  </text>
+
+  <rect class="box" x="165" y="25" width="120" height="80" rx="4"/>
+  <text class="label" x="225" y="55">
+    <tspan x="225">Устройство</tspan>
+    <tspan x="225" dy="20">ввода</tspan>
+  </text>
+
+  <rect class="box" x="320" y="25" width="120" height="80" rx="4"/>
+  <text class="label" x="380" y="45">
+    <tspan x="380">Основная</tspan>
+    <tspan x="380" dy="20">память</tspan>
+    <tspan x="380" dy="20">ОП и ПЗУ</tspan>
+  </text>
+
+  <rect class="box" x="475" y="25" width="120" height="80" rx="4"/>
+  <text class="label" x="535" y="55">
+    <tspan x="535">Устройство</tspan>
+    <tspan x="535" dy="20">вывода</tspan>
+  </text>
+
+  <rect class="box" x="630" y="25" width="120" height="80" rx="4"/>
+  <text class="label" x="690" y="55">
+    <tspan x="690">Выход</tspan>
+    <tspan x="690" dy="20">информации</tspan>
+  </text>
+
+  <line class="arrow" x1="130" y1="65" x2="161" y2="65"/>
+  <line class="arrow" x1="285" y1="65" x2="316" y2="65"/>
+  <line class="arrow" x1="440" y1="65" x2="471" y2="65"/>
+  <line class="arrow" x1="595" y1="65" x2="626" y2="65"/>
+
+  <!-- Процессор -->
+  <rect class="cpu" x="255" y="210" width="250" height="120" rx="8"/>
+  <text class="label" x="380" y="234">Процессор</text>
+
+  <rect class="inner" x="270" y="250" width="105" height="55" rx="4"/>
+  <text class="label" x="322" y="283">ЦУУ</text>
+
+  <rect class="inner" x="390" y="250" width="105" height="55" rx="4"/>
+  <text class="label" x="442" y="283">АЛУ</text>
+
+  <!-- Стрелка от процессора к основной памяти -->
+  <line class="arrow" x1="380" y1="210" x2="380" y2="110"/>
+
+  <!-- Управляющие связи от процессора -->
+  <line class="control" x1="265" y1="210" x2="270" y2="110"/>
+  <line class="control" x1="495" y1="210" x2="490" y2="110"/>
+
+  <!-- Внешнее запоминающее устройство -->
+  <rect class="box" x="30" y="225" width="180" height="85" rx="4"/>
+  <text class="small" x="120" y="258">
+    <tspan x="120">Внешнее</tspan>
+    <tspan x="120" dy="20">запоминающее</tspan>
+    <tspan x="120" dy="20">устройство</tspan>
+  </text>
+
+  <line class="arrow" x1="120" y1="225" x2="350" y2="110"/>
+</svg>
