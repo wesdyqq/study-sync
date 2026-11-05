@@ -1,4 +1,12 @@
-const { Plugin, Notice } = require("obsidian");
+const { Plugin, Notice, PluginSettingTab, Setting, Platform } = require("obsidian");
+
+const DEFAULT_SETTINGS = {
+  probeEnabled: false,
+  probeUrl: "",
+  probeToken: "",
+  probeDevice: "",
+  probeIntervalMin: 5
+};
 
 const AUTHOR = "Сафьянов Камиль Саматович";
 const MAGIC = "SAFAUTH1";
@@ -71,6 +79,23 @@ function embed(text, wm) {
 module.exports = class AuthorshipWatermark extends Plugin {
   async onload() {
     this.running = false;
+
+    // ---- Настройки проверки доступности к серверу ----
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    if (!this.settings.probeDevice) {
+      this.settings.probeDevice = "obsidian-" + (Platform.isMobile ? "mobile" : "desktop");
+    }
+    this.addSettingTab(new AuthorshipSettingsTab(this.app, this));
+
+    this.addRibbonIcon("server", "Проверить доступ к серверу", () => this.probeServer(true));
+    this.addCommand({
+      id: "probe-server",
+      name: "Проверить доступ к серверу",
+      callback: () => this.probeServer(true)
+    });
+    this.app.workspace.onLayoutReady(() => this.setupProbeLoop());
+    // ------------------------------------------------
+
     this.addRibbonIcon("shield-check", "Authorship: проставить метки", () => this.watermarkAll(true));
     this.addCommand({
       id: "watermark-all",
@@ -83,6 +108,56 @@ module.exports = class AuthorshipWatermark extends Plugin {
     }));
     this.registerInterval(window.setInterval(() => this.watermarkAll(false), 120000));
   }
+
+  // ---- Проверка доступности к серверу ----
+  setupProbeLoop() {
+    // Интервал наблюдаем через registerInterval, но фактическое включение
+    // зависит от настройки probeEnabled (её можно менять на лету).
+    this.registerInterval(window.setInterval(() => {
+      if (this.settings.probeEnabled) this.probeServer(false);
+    }, 60000));
+  }
+
+  async probeServer(notify) {
+    const url = (this.settings.probeUrl || "").trim().replace(/\/+$/, "");
+    if (!url) {
+      if (notify) new Notice("Probe: укажите адрес сервера в настройках");
+      return;
+    }
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 10000);
+    try {
+      const res = await fetch(url + "/probe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + this.settings.probeToken
+        },
+        body: JSON.stringify({
+          device: this.settings.probeDevice,
+          platform: Platform.isMobile ? "mobile" : "desktop",
+          ts: Date.now()
+        }),
+        signal: ctrl.signal
+      });
+      clearTimeout(timer);
+      if (res.status === 401) {
+        if (notify) new Notice("Probe: сервер отклонил токен (401)");
+        console.warn("[authorship-watermark] probe 401 unauthorized");
+        return;
+      }
+      if (!res.ok) {
+        if (notify) new Notice("Probe: сервер ответил " + res.status);
+        return;
+      }
+      if (notify) new Notice("Probe: сервер доступен ✓");
+    } catch (e) {
+      clearTimeout(timer);
+      if (notify) new Notice("Probe: сервер недоступен (" + (e && e.name === "AbortError" ? "таймаут" : e.message) + ")");
+      console.warn("[authorship-watermark] probe failed", e);
+    }
+  }
+  // -----------------------------------------
 
   async watermarkFile(file) {
     try {
@@ -115,3 +190,69 @@ module.exports = class AuthorshipWatermark extends Plugin {
     if (notify) new Notice("Authorship: обновлено заметок — " + n);
   }
 };
+
+class AuthorshipSettingsTab extends PluginSettingTab {
+  constructor(app, plugin) {
+    super(app, plugin);
+    this.plugin = plugin;
+  }
+
+  display() {
+    const { containerEl } = this;
+    containerEl.empty();
+    containerEl.createEl("h3", { text: "Проверка доступа к серверу" });
+
+    new Setting(containerEl)
+      .setName("Включить фоновую проверку")
+      .setDesc("Раз в минуту отмечаться на сервере, если включено.")
+      .addToggle((t) => t
+        .setValue(this.plugin.settings.probeEnabled)
+        .onChange(async (v) => {
+          this.plugin.settings.probeEnabled = v;
+          await this.plugin.saveData(this.plugin.settings);
+          if (v) this.plugin.probeServer(true);
+        }));
+
+    new Setting(containerEl)
+      .setName("Адрес сервера")
+      .setDesc("Например: https://probe.example.com (без /probe на конце)")
+      .addText((t) => t
+        .setPlaceholder("https://...")
+        .setValue(this.plugin.settings.probeUrl)
+        .onChange(async (v) => {
+          this.plugin.settings.probeUrl = v.trim();
+          await this.plugin.saveData(this.plugin.settings);
+        }));
+
+    new Setting(containerEl)
+      .setName("Токен")
+      .setDesc("Bearer-токен, совпадает с PROBE_TOKEN на сервере.")
+      .addText((t) => {
+        t.inputEl.type = "password";
+        t.setPlaceholder("секрет")
+          .setValue(this.plugin.settings.probeToken)
+          .onChange(async (v) => {
+            this.plugin.settings.probeToken = v.trim();
+            await this.plugin.saveData(this.plugin.settings);
+          });
+      });
+
+    new Setting(containerEl)
+      .setName("Имя устройства")
+      .setDesc("Так оно появится в /status на сервере.")
+      .addText((t) => t
+        .setValue(this.plugin.settings.probeDevice)
+        .onChange(async (v) => {
+          this.plugin.settings.probeDevice = v.trim();
+          await this.plugin.saveData(this.plugin.settings);
+        }));
+
+    new Setting(containerEl)
+      .setName("Проверить сейчас")
+      .setDesc("Отправить один запрос на сервер.")
+      .addButton((b) => b
+        .setButtonText("Проверить")
+        .setCta()
+        .onClick(() => this.plugin.probeServer(true)));
+  }
+}

@@ -1,9 +1,9 @@
 {
 	"id": "authorship-watermark",
 	"name": "Authorship Watermark",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"minAppVersion": "0.15.0",
-	"description": "Невидимая метка автора в заметках (стеганография на символах нулевой ширины).",
+	"description": "Невидимая метка автора в заметках и проверка доступности устройств к вашему серверу.",
 	"author": "wesdyqq",
 	"isDesktopOnly": false
 }
