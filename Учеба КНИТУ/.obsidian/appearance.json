@@ -4,5 +4,6 @@
   "enabledCssSnippets": [
     "noctalia",
     "mermaid-center"
-  ]
+  ],
+  "showRibbon": true
 }
