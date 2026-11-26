@@ -1,3 +1,6 @@
 # Локальная раскладка Obsidian — не синхронизировать (вызывала конфликты pull и ломала GitHub Sync)
 **/.obsidian/workspace.json
 **/.obsidian/workspace-mobile.json
+
+# Локальное руководство по стилю конспектов
+/.lecture-style.md
